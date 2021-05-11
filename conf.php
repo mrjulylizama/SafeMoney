@@ -1,42 +1,46 @@
 <?php
 session_start();
-$id=$_SESSION['id'];
+$id = $_SESSION['id'];
 require "php\conexion.php";
 
-$sql="SELECT apellidos FROM `usuarios` WHERE id=$id ";
-$resultado=$mysqli->query($sql);
-$num=$resultado->num_rows;
-if ($num>0) {
-  $row=$resultado->fetch_object();
-        $apellidos= $row->apellidos;
-        
-           
-}else{
-  $apellidos=" ";
+$sql = "SELECT apellidos FROM `usuarios` WHERE id=$id ";
+$resultado = $mysqli->query($sql);
+$num = $resultado->num_rows;
+if ($num > 0) {
+  $row = $resultado->fetch_object();
+  $apellidos = $row->apellidos;
+} else {
+  $apellidos = " ";
 }
-$sql="SELECT email FROM `usuarios` WHERE id=$id ";
-$resultado=$mysqli->query($sql);
-$num=$resultado->num_rows;
-if ($num>0) {
-  $row=$resultado->fetch_object();
-        $email= $row->email;
-        
-           
-}else{
-  $email="";
+$sql = "SELECT email FROM `usuarios` WHERE id=$id ";
+$resultado = $mysqli->query($sql);
+$num = $resultado->num_rows;
+if ($num > 0) {
+  $row = $resultado->fetch_object();
+  $email = $row->email;
+} else {
+  $email = "";
 }
-$sql="SELECT password FROM `usuarios` WHERE id=$id ";
-$resultado=$mysqli->query($sql);
-$num=$resultado->num_rows;
-if ($num>0) {
-  $row=$resultado->fetch_object();
-        $password= $row->password;
-        
-           
-}else{
-  $password="";
+$sql = "SELECT password FROM `usuarios` WHERE id=$id ";
+$resultado = $mysqli->query($sql);
+$num = $resultado->num_rows;
+if ($num > 0) {
+  $row = $resultado->fetch_object();
+  $password = $row->password;
+} else {
+  $password = "";
 }
-          
+
+$sql = "SELECT montoM FROM `usuarios` WHERE id=$id ";
+$resultado = $mysqli->query($sql);
+$num = $resultado->num_rows;
+if ($num > 0) {
+  $row = $resultado->fetch_object();
+  $montoM = $row->montoM;
+} else {
+  $montoM = "";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -81,19 +85,19 @@ if ($num>0) {
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-        
+
       </ul>
 
       <!-- SEARCH FORM -->
       <form class="form-inline ml-3">
-        
+
       </form>
 
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
         <!-- Messages Dropdown Menu -->
         <!-- Notifications Dropdown Menu -->
-        
+
       </ul>
     </nav>
     <!-- /.navbar -->
@@ -114,80 +118,80 @@ if ($num>0) {
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block"><?php echo $_SESSION['nombre']?></a>
+            <a href="#" class="d-block"><?php echo $_SESSION['nombre'] ?></a>
           </div>
         </div>
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item">
-            <a href="index.php" class="nav-link ">
-              <i class="nav-icon fas fa-laptop-house"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
+            <li class="nav-item">
+              <a href="index.php" class="nav-link ">
+                <i class="nav-icon fas fa-laptop-house"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
             </li>
 
             <li class="nav-item">
               <a href="ingresos.php" class="nav-link">
-              <i class="nav-icon fas fa-coins"></i>
+                <i class="nav-icon fas fa-coins"></i>
                 <p>
                   Ingresos
                 </p>
               </a>
             </li>
-            
-          <li class="nav-item">
-            <a href="egresos.php" class="nav-link">
-            <i class=" nav-icon fas fa-hand-holding-usd"></i>
-              <p>
-                Egresos
-              </p>
-            </a>
-          </li>
-
-
-          <li class="nav-item">
-            <a href="reportes.php" class="nav-link ">
-            <i class=" nav-icon fas fa-file-invoice-dollar"></i>
-              <p>
-                Reportes
-              </p>
-            </a>
-          </li>
-
-
-            <hr>
-            <hr>
-            <hr>
-            <hr>
-            <hr>
-            <hr>
-            
 
             <li class="nav-item">
-            <a href="conf.php" class="nav-link active">
-            <i class="nav-icon fas fa-cog"></i>
-              <p>
-               AJUSTES
-              </p>
-            </a>
-          </li> 
-         
-         
-          <li class="nav-item">
-            <a href="cerrarsession.php" class="nav-link">
-            <i class="nav-icon fas fa-door-open"></i>
-              <p>
-               CERRAR SESSION
-              </p>
-            </a>
-          </li>     
-        </ul>
+              <a href="egresos.php" class="nav-link">
+                <i class=" nav-icon fas fa-hand-holding-usd"></i>
+                <p>
+                  Egresos
+                </p>
+              </a>
+            </li>
+
+
+            <li class="nav-item">
+              <a href="reportes.php" class="nav-link ">
+                <i class=" nav-icon fas fa-file-invoice-dollar"></i>
+                <p>
+                  Reportes
+                </p>
+              </a>
+            </li>
+
+
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+
+
+            <li class="nav-item">
+              <a href="conf.php" class="nav-link active">
+                <i class="nav-icon fas fa-cog"></i>
+                <p>
+                  AJUSTES
+                </p>
+              </a>
+            </li>
+
+
+            <li class="nav-item">
+              <a href="cerrarsession.php" class="nav-link">
+                <i class="nav-icon fas fa-door-open"></i>
+                <p>
+                  CERRAR SESSION
+                </p>
+              </a>
+            </li>
+          </ul>
         </nav>
         <!-- /.sidebar-menu -->
       </div>
@@ -215,65 +219,72 @@ if ($num>0) {
 
       <!-- Button trigger modal -->
       <div class="col-sm-8  justify-content-center">
-      <hr>
-      
-          <div class="image">
-            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-          </div>
-          <div class="info">
-            <h3  class="d-block"><?php echo $_SESSION['nombre']?></h3>
-            <form method="POST" name="form-work" action="guardar.php">
-            <div class="form-group" >
-						<input name="foto" class="form-foto" type="file">
-					</div>
+        <hr>
 
-					<input type="submit" class="btn btn-primary"  value="Subir foto" >
-           </form>
-          </div>
-        
-              <hr>
-              <form action="newdatos.php" method="post">
-              <label>Nombre de Usuario </label>
-              <br>
-              <input type="text" name="nombre" value="<?php echo $_SESSION['nombre']?>" class="form-control">
-              <br>
-              <label>Apellidos de Usuario </label>
-              <br>
-              <input type="text" name="apellidos" value="<?php echo $apellidos?>" class="form-control">
-              <br>
-              <label>Email  </label>
-              <br>
-              <input type="text" name="email" value="<?php echo $email?>" class="form-control">
-              <br>
-              <label>Password  </label>
-              <br>
-              <input type="password" name="pass" value="<?php echo $password?>" class="form-control">
-              <br>
-                  
-                      <input type="submit" class="btn btn-primary"  value="Guardar cambios" >
-                      <br>
-                      <br>
-                    </form>
+        <div class="image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <h3 class="d-block"><?php echo $_SESSION['nombre'] ?></h3>
+          <form method="POST" name="form-work" action="guardar.php">
+            <div class="form-group">
+              <input name="foto" class="form-foto" type="file">
+            </div>
 
+            <input type="submit" class="btn btn-primary" value="Subir foto">
+          </form>
+        </div>
 
-                    <form action="newdatos.php" method="post">
-                    <Hr>
-                    <br>
-                    <label>Peririocidad de pago </label>
-                    <input type="text" name="apellidos" value="tu salario ej. 200" class="form-control">
-                    <input type="submit" class="btn btn-primary"  value="Guardar cambios" >
-                     <br>
-                    <br>
-                    
-                    </form>
-            </div><!-- /.col -->
-            
-            
+        <hr>
+        <form action="newdatos.php" method="post">
+          <label>Nombre de Usuario </label>
+          <br>
+          <input type="text" name="nombre" value="<?php echo $_SESSION['nombre'] ?>" class="form-control">
+          <br>
+          <label>Apellidos de Usuario </label>
+          <br>
+          <input type="text" name="apellidos" value="<?php echo $apellidos ?>" class="form-control">
+          <br>
+          <label>Email </label>
+          <br>
+          <input type="text" name="email" value="<?php echo $email ?>" class="form-control">
+          <br>
+          <label>Password </label>
+          <br>
+          <input type="password" name="pass" value="<?php echo $password ?>" class="form-control">
+          <br>
+          <label>Monto minimo para alerta de gastos</label>
+          <br>
+          <input type="number" name="montoM" value="<?php echo $montoM ?>" class="form-control">
+          <br>
 
+          <input type="submit" class="btn btn-primary" value="Guardar cambios">
+          <br>
+          <br>
+        </form>
 
+        <form action="newdatos.php" method="post">
+          <Hr>
+          <br>
+          <label>Peririocidad de pago </label>
+          <input type="text" name="apellidos" value="tu salario ej. 200" class="form-control">
+          <input type="submit" class="btn btn-primary" value="Guardar cambios">
+          <br>
+          <br>
+        </form>
 
+        <form action="newdatos.php" method="post">
+          <Hr>
+          <br>
+          <label>Peririocidad de pago </label>
+          <input type="text" name="apellidos" value="tu salario ej. 200" class="form-control">
+          <input type="submit" class="btn btn-primary" value="Guardar cambios">
+          <br>
+          <br>
+
+        </form>
+      </div><!-- /.col -->
       <!-- Main content -->
-      
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -327,21 +338,21 @@ if ($num>0) {
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="dist/js/pages/dashboard.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="plugins\bootstrap\js\bootstrap.js"></script>
-<script src="plugins\bootstrap\js\bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="plugins\bootstrap\js\bootstrap.js"></script>
+  <script src="plugins\bootstrap\js\bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
 
-<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script >
-$(document).ready(function() {
-  $('#myTable').DataTable( {
-    responsive: true
-} );
-} );
-</script>
+  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#myTable').DataTable({
+        responsive: true
+      });
+    });
+  </script>
 
 </body>
 

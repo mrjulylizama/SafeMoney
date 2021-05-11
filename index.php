@@ -34,11 +34,7 @@ if ($num > 0) {
 
 $monto = number_format($ingresos2 - $egreso2, 2, ".", ",");
 
-
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 

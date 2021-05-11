@@ -1,11 +1,50 @@
 <?php
 session_start();
-$id = $_SESSION['id'];
 require "php\conexion.php";
+$id = $_SESSION['id'];
+$sql = "SELECT SUM(monto)as monto FROM `ingresos` WHERE id_usuario =$id AND MONTH(fecha) = MONTH(CURDATE()) ";
+$resultado = $mysqli->query($sql);
+$num = $resultado->num_rows;
+if ($num > 0) {
+  $row = $resultado->fetch_object();
+  $ingresos = number_format($row->monto, 2, ".", ",");
+  $ingresos2 = $row->monto;
+} else {
+  $ingresos = "0";
+}
+$sql = "SELECT SUM(cantidad)as monto FROM `egresos` WHERE id_usuario =$id AND MONTH(fecha) = MONTH(CURDATE())";
+$resultado = $mysqli->query($sql);
+$num = $resultado->num_rows;
+if ($num > 0) {
+  $row = $resultado->fetch_object();
+  $egreso = number_format($row->monto, 2, ".", ",");
+  $egreso2 = $row->monto;
+} else {
+  $egreso = "0";
+}
+$sql = "SELECT count(cantidad)as gastos FROM `egresos` WHERE id_usuario =$id AND MONTH(fecha) = MONTH(CURDATE())";
+$resultado = $mysqli->query($sql);
+$num = $resultado->num_rows;
+if ($num > 0) {
+  $row = $resultado->fetch_object();
+  $gastos = $row->gastos;
+} else {
+  $gastos = "0";
+};
 
+$monto = number_format($ingresos2 - $egreso2, 2, ".", ",");
+
+$sql = "SELECT montoM FROM `usuarios` WHERE id=$id ";
+$resultado = $mysqli->query($sql);
+$num = $resultado->num_rows;
+if ($num > 0) {
+  $row = $resultado->fetch_object();
+  $montoM = $row->montoM;
+} else {
+  $montoM = "";
+}
 
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,8 +52,6 @@ require "php\conexion.php";
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Egresos</title>
-
-
   <link rel="stylesheet" href="dist\css\tablasdatos.css">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -40,7 +77,6 @@ require "php\conexion.php";
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
-
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <!-- Left navbar links -->
@@ -48,19 +84,14 @@ require "php\conexion.php";
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-
       </ul>
-
       <!-- SEARCH FORM -->
       <form class="form-inline ml-3">
-
       </form>
-
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
         <!-- Messages Dropdown Menu -->
         <!-- Notifications Dropdown Menu -->
-
       </ul>
     </nav>
     <!-- /.navbar -->
@@ -68,7 +99,7 @@ require "php\conexion.php";
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
+      <a href="index.html" class="brand-link">
         <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">SafeMoney</span>
       </a>
@@ -117,7 +148,6 @@ require "php\conexion.php";
               </a>
             </li>
 
-
             <li class="nav-item">
               <a href="reportes.php" class="nav-link">
                 <i class=" nav-icon fas fa-file-invoice-dollar"></i>
@@ -126,7 +156,6 @@ require "php\conexion.php";
                 </p>
               </a>
             </li>
-
 
             <hr>
             <hr>
@@ -142,7 +171,6 @@ require "php\conexion.php";
                 </p>
               </a>
             </li>
-
 
             <li class="nav-item">
               <a href="cerrarsession.php" class="nav-link">
@@ -180,39 +208,57 @@ require "php\conexion.php";
 
       <!-- Button trigger modal -->
 
-
       <!-- Modal -->
 
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Nuevo Egreso
       </button>
-
+      <script type="text/javascript">
+        function gasto() {
+          var costo = document.getElementById("costo").value;
+          var monto = <?php echo $monto ?>;
+          var montoM = <?php echo $montoM ?>;
+          var totalC = monto - costo;
+          if (totalC <= montoM) {
+            var respuesta = confirm("¿Está seguro que sobrepasará el limite establecido?");
+            if (respuesta == true) {
+              return true;
+            } else {
+              return false;
+            }
+          } else {
+            return true;
+          }
+        }
+      </script>
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Nuevo Ingreso</h5>
+
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
               <section class="content">
-
-                <form method="post">
+                <form method="post" action="registrar.php">
                   <h1>Agregar nuevo gasto</h1>
+                  <input type="hidden" name="id" value="<?php echo $id ?>">
+
                   <div class="form-group">
                     <input class="form-control" type="text" name="descripcion" placeholder="Descripción">
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="text" name="cantidad" placeholder="Cantidad">
+                    <input class="form-control" type="text" name="cantidad" id="costo" placeholder="Costo">
                   </div>
                   <div class="form-group">
                     <input class="form-control" type="text" name="categoria" placeholder="Categoria">
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="submit" name="agregar">
+                    <input class="form-control" type="submit" name="agregar" onclick="return gasto()">
                   </div>
                 </form>
 
@@ -221,7 +267,6 @@ require "php\conexion.php";
                 include("registrar.php");
 
                 ?>
-
 
               </section>
             </div>
@@ -291,7 +336,6 @@ require "php\conexion.php";
           </div>
         </div>
       </div>
-
 
       <!-- Edit Modal HTML -->
       <div id="editEmployeeModal" class="modal fade">
@@ -422,6 +466,5 @@ require "php\conexion.php";
   </script>
 
 </body>
-
 
 </html>
