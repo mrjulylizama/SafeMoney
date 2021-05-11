@@ -17,7 +17,7 @@ if($query){
 
     echo "correcto";
 
-    header('Location: login nuevo.html');
+    header('Location: loginnuevo.html');
     
 }else{
 

@@ -182,11 +182,17 @@ require "php\conexion.php";
 
 
       <!-- Modal -->
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Nuevo Egreso
+      </button>
+
+      <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Nuevo Egreso</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Nuevo Ingreso</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -206,7 +212,7 @@ require "php\conexion.php";
                     <input class="form-control" type="text" name="categoria" placeholder="Categoria">
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="submit" name="agregar" onclick="returd alerta()">
+                    <input class="form-control" type="submit" name="agregar">
                   </div>
                 </form>
 
@@ -414,7 +420,7 @@ require "php\conexion.php";
       });
     });
   </script>
-  <script src="js/alertas.js"></script>
+
 </body>
 
 
