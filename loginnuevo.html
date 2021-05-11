@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>SafeMoney</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/png" href="img/1.png" />	 
+		<link rel="stylesheet" href="dist\css\estilos.css">
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+
+			<div class="image-holder">
+				<img src="img/1.jpg" alt="">
+			</div>
+
+			<div class="form-inner">
+				<form action="php\verificar.php" method="POST">
+
+					<div class="form-header">
+						<h3>Iniciar sesión</h3>
+						<img src="images/sign-up.png" alt="" class="sign-up-icon">
+					</div>
+
+					<div class="form-group">
+						<label for="">Usuario:</label>
+						<input type="text" class="form-control" data-validation="length alphanumeric" data-validation-length="3-12" name="usuario" required>
+					</div>
+
+					<div class="form-group" >
+						<label for="">Contraseña:</label>
+						<input type="password" class="form-control" data-validation="length"  name="password"  required>
+					</div>
+
+					<button>Iniciar sesión</button><br>
+
+					<h2 class="cuenta">¿No tienes una cuenta? <a href="registro.html">Regístrate</a></h2>
+					
+				</form>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>

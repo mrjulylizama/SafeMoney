@@ -1,0 +1,165 @@
+@font-face {
+    font-family: "ChelseaMarket-Regular";
+    src: url("../fonts/chelsea_market/ChelseaMarket-Regular.ttf"); }
+  @font-face {
+    font-family: "Muli-Regular";
+    src: url("../fonts/muli/Muli-Regular.ttf"); }
+  @font-face {
+    font-family: "Muli-SemiBold";
+    src: url("../fonts/muli/Muli-SemiBold.ttf"); }
+
+body{
+    background-color: #f5f5f5;
+}
+
+.panel {
+    background: white;  
+}
+
+.panel a {
+    font-family: century gothic;
+    font-size: 16px;
+}
+
+.uno{
+    width: 343px;
+
+}
+
+.navbar-default{
+    position: relative;
+    float: left;
+    margin-left: -20px;
+    padding: 250px;
+    padding-bottom: 600px;
+    background-color: white;
+    width: 350px;
+    font-size: 16px;
+}
+
+.navbar-default:hover{
+    color:black;
+}
+
+#title{
+    color: white;
+}
+
+#title2{
+    color: white;
+    font-size: 25px;
+    margin-left: 25px;
+    line-height: 65px;
+}
+
+a{
+    color: #999;
+}
+
+.navbar-brand{
+    font-family: century gothic;
+    font-size: 23px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 5px;
+    text-align: center;  
+    color: white;
+}
+ 
+.navbar-header {
+    float: left;
+}
+
+.navbar-left {
+    float: left;
+}
+
+.navbar-right {
+    text-align: right;
+}
+
+.navbar-top-links {
+    margin: 0;
+}
+
+.navbar-top-links li {
+    display: inline-block;
+}
+
+.navbar-top-links li:last-child {
+    margin-right: 6px;
+}
+
+.navbar-top-links li a {
+    padding: 20px;
+    min-height: 50px;
+}
+
+.navbar-top-links>li>a {
+    color: #999;
+}
+
+.navbar-top-links>li>a:hover, .navbar-top-links>li>a:focus, .navbar-top-links>.open>a, .navbar-top-links>.open>a:hover, .navbar-top-links>.open>a:focus {
+    color: #fff;
+    background-color: #222;
+}
+
+.navbar-top-links .dropdown-menu li {
+    display: block;
+}
+
+.navbar-top-links .dropdown-menu li:last-child {
+    margin-right: 0;
+}
+
+.navbar-top-links .dropdown-menu li a {
+    padding: 3px 20px;
+    min-height: 0;
+}
+
+.navbar-top-links .dropdown-menu li a div {
+    white-space: normal;
+}
+
+.navbar-top-links .dropdown-messages,
+.navbar-top-links .dropdown-tasks,
+.navbar-top-links .dropdown-alerts {
+    width: 310px;
+    min-width: 0;
+}
+
+.navbar-top-links .dropdown-messages {
+    margin-left: 5px;
+}
+
+.navbar-top-links .dropdown-tasks {
+    margin-left: -59px;
+}
+
+.navbar-top-links .dropdown-alerts {
+    margin-left: -123px;
+}
+
+.navbar-top-links .dropdown-user {
+    right: 0;
+    left: auto;
+}
+
+.navbar-default{
+    position: relative;
+    float: left;
+    padding: 25px;
+    padding-bottom: 600px;
+    background-color: white;
+    width: 350px;
+    font-size: 16px;
+    color: #999;
+}
+
+.navbar-default a{
+    color:#999;
+}
+
+.navbar-default:hover{
+    color:black;
+}

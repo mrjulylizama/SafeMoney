@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+	
+	<head>
+		<meta charset="utf-8">
+		<title>SafeMoney</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/png" href="img/1.png" />
+		<link rel="stylesheet" href="css/estilos.css">
+		<link rel="stylesheet" href="dist\css\estilos.css">
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+
+			<div class="image-holder">
+				<img src="img/1.jpg" alt="">
+			</div>
+
+			<div class="form-inner">
+				<form method="POST" name="form-work" action="guardar.php">
+
+					<div class="form-header">
+						<h3>Registrate</h3>
+						<img src="images/sign-up.png" alt="" class="sign-up-icon">
+					</div>
+
+					<div class="form-group">
+						<label for="">Nombres:</label>
+						<input name="nombre"  type="text" class="form-control" data-validation="length alphanumeric" data-validation-length="2-100" placeholder="Daniel Eduardo">
+						
+					</div>
+
+					<div class="form-group">
+						<label for="">Apellidos:</label>
+						<input name="apellido" type="text" class="form-control" data-validation="length alphanumeric" data-validation-length="2-100" placeholder="Perez Hernandez">
+					</div>
+
+					<div class="form-group">
+						<label for="">Correo electronico:</label>
+						<input name="email" type="text" class="form-control" data-validation="email" placeholder="Correo@gmail.com">
+					</div>
+
+					<div class="form-group" >
+						<label for="">Contraseña:</label>
+						<input name="contrasena" type="password" class="form-control" data-validation="length" data-validation-length="min4" placeholder="***********">
+					</div>
+					
+					<div class="form-group" >
+						<input name="foto" class="form-foto" type="file">
+					</div>
+
+					<button type="submit">Crear mi cuenta</button><br>
+
+					<h2 class="cuenta">¿Tienes una cuenta?  <a href="login nuevo.html">Inicia sesión</a></h2>  
+					
+				</form>
+			</div>
+			
+		</div>
+		
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/jquery.form-validator.min.js"></script>
+		<script src="js/main.js"></script>
+		
+	</body>
+</html>
